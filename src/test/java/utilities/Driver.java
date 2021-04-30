@@ -5,7 +5,6 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import utilities.ConfigReader;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,10 +27,11 @@ public class Driver {
             desiredCapabilities.setCapability(MobileCapabilityType.APP, ConfigReader.getProperty("appPath"));
             desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
             desiredCapabilities.setCapability("autoAcceptAlert",true);
+            desiredCapabilities.setCapability("deviceOrientation", "landscape");
             if (ConfigReader.getProperty("platformName").equals("android")) {
                 //if you do not provide app path so you should provide "appPackage" and "appActivity"
-                desiredCapabilities.setCapability("appPackage","");
-                desiredCapabilities.setCapability("appActivity","");
+                //desiredCapabilities.setCapability("appPackage","");
+                //desiredCapabilities.setCapability("appActivity","");
                 appiumDriver = new AndroidDriver(appiumServerURL,desiredCapabilities);
                 appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             } else if (ConfigReader.getProperty("platformName").equals("ios")) {
