@@ -48,14 +48,7 @@ public class CalcStepDefinitions {
         Thread.sleep(1000);
         result = Driver.getAppiumDriver().findElementById("com.google.android.calculator:id/result_final").getText();
         System.out.println("result after squareroot: " + result);
-//        multiply.click();
-//        minus.click();
-//        Thread.sleep(1000);
-//        calc.num1.click();
-//        calc.equals.click();
-//        Thread.sleep(1000);
-//        result = Driver.getAppiumDriver().findElementById("com.google.android.calculator:id/result_final").getText();
-//
+        
     }
 
         @And("multiply it by {string}")
